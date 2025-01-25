@@ -5,6 +5,8 @@ import lombok.*;
 import org.hibernate.annotations.Type;
 @Data
 @Entity
+@Getter
+@Setter
 //@NoArgsConstructor
 //@AllArgsConstructor
 public class Image {
@@ -12,6 +14,7 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
 
     private String name;
 
@@ -25,6 +28,8 @@ public class Image {
         this.type = type;
         this.imageData = imageData;
     }
+
+    //public Image(){}
 
     public Long getId() {
         return id;

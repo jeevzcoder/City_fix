@@ -1,6 +1,9 @@
 package org.project.city_fix;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
+import org.project.city_fix.Models.Authority;
+import org.project.city_fix.Models.Department;
 import org.project.city_fix.Models.User;
 import org.project.city_fix.Repositories.AuthorityRepo;
 import org.project.city_fix.Repositories.UserRepo;
@@ -10,17 +13,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CityFixApplicationTests {
 
-	//User user2= new User();
-	//user1.setId(1);
+	@Autowired
+	UserRepo userRepo;
 
-	//user1.setName("John");
-	//user1.setEmail("sgjhs");
+	@Autowired
+	AuthorityRepo authRepo;
 
-	//user2.setId(2);
+	//@Test
+	//@Transactional
+	public void saveUsers() {
+		User user1 = new User(1L, "abhi", "abbc@email.com", "abhi123", null);
+		User user2 = new User(22L, "axiii", "abascas@email.com", "asdf23", null);
 
+		Authority auth1 = new Authority(2L, "Auth 1", Department.water, "auth1@email.com");
+		Authority auth2 = new Authority(22L, "Auth 2", Department.road, "auth2@email.com");
 
-	@Test
-	void contextLoads() {
+//		userRepo.save(user1);
+//		userRepo.save(user2);
+//		authRepo.save(auth1);
+//		authRepo.save(auth2);
 	}
-
 }

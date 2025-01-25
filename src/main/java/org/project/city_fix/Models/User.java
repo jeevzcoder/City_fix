@@ -8,11 +8,9 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@Setter
+
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,9 +18,20 @@ public class User {
     private String name;
     private String email;
     private String userName;
+
+
     @OneToMany
     private List<Complaint> complaintsByUser;
+    public User(){}
 
+
+    public User(Long id, String name, String email, String userName, List<Complaint> complaintsByUser) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.userName = userName;
+        this.complaintsByUser = complaintsByUser;
+    }
     public Long getId() {
         return id;
     }

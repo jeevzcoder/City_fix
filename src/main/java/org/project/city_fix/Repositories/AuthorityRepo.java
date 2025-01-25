@@ -18,4 +18,5 @@ public interface AuthorityRepo extends JpaRepository<Authority, Long> {
     Optional<Authority> findById(Long id);
     Optional<Authority > findByName(String name);
     Optional<List<Authority>> findByDepartment(Department department);
+
 }

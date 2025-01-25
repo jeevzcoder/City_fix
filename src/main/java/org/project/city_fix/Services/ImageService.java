@@ -1,5 +1,4 @@
 package org.project.city_fix.Services;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.exception.ContextedRuntimeException;
 import org.project.city_fix.Models.Image;
 import org.project.city_fix.Repositories.ImageRepo;
@@ -12,7 +11,6 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 
 @Service
-//@RequiredArgsConstructor
 public class ImageService {
 
     @Autowired
@@ -22,11 +20,9 @@ public class ImageService {
 
     private final ImageRepo imageRepository;
 
-    public String uploadImage(MultipartFile imageFile) throws IOException {
+    public Image uploadImage(MultipartFile imageFile) throws IOException {
         var imageToSave = new Image(imageFile.getOriginalFilename(), imageFile.getContentType(), ImageUtils.compressImage(imageFile.getBytes()));
-
-        imageRepository.save(imageToSave);
-        return "file uploaded successfully : " + imageFile.getOriginalFilename();
+        return imageRepository.save(imageToSave);
     }
 
     public byte[] downloadImage(String imageName) {
