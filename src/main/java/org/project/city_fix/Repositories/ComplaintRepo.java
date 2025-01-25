@@ -11,8 +11,6 @@ import java.util.Optional;
 @Repository
 public interface ComplaintRepo extends JpaRepository<Complaint, Long> {
 
-    //void save(Complaint complaint);
-
 
     @Override
     <S extends Complaint> S save(S entity);
@@ -22,5 +20,6 @@ public interface ComplaintRepo extends JpaRepository<Complaint, Long> {
 
     @Override
     Optional<Complaint> findById(Long aDouble);
-    //findBy
+
+
 }
